@@ -51,6 +51,9 @@ const Navbar = ({
 
   menu = [
     { title: "Home", url: "/" },
+    { title: "About Me", url: "/about" },
+    { title: "Blogs", url: "/blogs" },
+    { title: "Projects", url: "/projects" },
   ],
   auth = {
     login: { title: "Login", url: "/login" },
@@ -61,7 +64,7 @@ const Navbar = ({
     <section className="py-4">
       <div className="container">
         {/* Desktop Menu */}
-        <nav className="hidden justify-between lg:flex">
+        <nav className="hidden justify-between  lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
             <Link href={'/'} className="flex items-center gap-2">
@@ -102,7 +105,7 @@ const Navbar = ({
                 <SheetHeader>
                   <SheetTitle>
                     <Link href={'/'} className="flex items-center gap-2">
-                <Logo></Logo>
+                        M.Dev
                     </Link>
                   </SheetTitle>
                 </SheetHeader>

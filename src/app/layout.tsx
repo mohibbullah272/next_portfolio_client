@@ -30,7 +30,7 @@ export default function RootLayout({
         className={ `dark ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ParticlesBackground></ParticlesBackground>
-        <main className="relative z-10">{children}</main>
+        <main className="relative z-10 max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   );
