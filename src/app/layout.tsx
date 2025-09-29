@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={ `dark ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={ `max-w-7xl mx-auto dark ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ParticlesBackground></ParticlesBackground>
-        <main className="relative z-10 max-w-7xl mx-auto">{children}</main>
+        <main className="relative z-10 ">{children}</main>
       </body>
     </html>
   );

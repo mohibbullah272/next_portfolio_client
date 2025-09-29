@@ -1,9 +1,9 @@
 
-
+import Timeline from "@/components/ui/TimeLine";
 const About = () => {
     return (
         <div>
-            this is about page
+         <Timeline></Timeline>
         </div>
     );
 };
