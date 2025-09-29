@@ -47,7 +47,7 @@ const Timeline = () => {
     <section className=" py-32">
       <div className="container">
         <h1 className="text-foreground mb-10 text-center text-3xl font-bold tracking-tighter sm:text-6xl">
-        Mohibbullah Full Stack Developer
+        Mohibbullah <br /> <span className="text-primary/80">Full Stack Developer</span> 
         </h1>
         <div className="relative mx-auto max-w-4xl">
           <Separator
