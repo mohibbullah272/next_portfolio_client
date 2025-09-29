@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ParticlesBackground from "@/components/ParticlesBackground";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={ `dark ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ParticlesBackground></ParticlesBackground>
+        <main className="relative z-10">{children}</main>
       </body>
     </html>
   );
