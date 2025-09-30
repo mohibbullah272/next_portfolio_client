@@ -63,10 +63,10 @@ const Timeline = () => {
 
         
 
-              <Card className="my-5 p-5 border-none shadow-none">
+              <Card className="my-5 p-5 border-none bg-white/5 backdrop-blur-sm shadow-none">
                 <CardContent className="px-0 xl:px-2">
                   <div
-                    className="prose dark:prose-invert text-foreground"
+                    className="prose  dark:prose-invert text-foreground"
                     dangerouslySetInnerHTML={{ __html: entry.content }}
                   />
                 </CardContent>

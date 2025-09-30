@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { CalendarIcon, EyeIcon } from "lucide-react"; // Assuming lucide-react for icons
+import Link from "next/link";
 
 export interface IBLog {
   id: number;
@@ -12,18 +13,19 @@ export interface IBLog {
   viewCount: number;
 }
 
+export const formatDate = (date: Date) =>
+   new Date(date).toLocaleDateString("en-US", {
+     year: "numeric",
+     month: "short",
+     day: "numeric",
+   });
 const BlogCard = ({ blog }: { blog: IBLog }) => {
  
-  const formatDate = (date: Date) =>
-    new Date(date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
 
   return (
-    <Card
-      className="bg-black/10 backdrop-blur-sm max-w-sm w-full rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+    <Link href={`/blogs/${blog.id}`}>
+     <Card
+      className="bg-black/5 backdrop-blur-sm max-w-sm w-full rounded-lg overflow-hidden transition-shadow border-2 border-gray-700 duration-300 hover:shadow-lg"
       aria-labelledby={`blog-title-${blog.id}`}
     >
       <CardHeader className="p-4">
@@ -47,7 +49,7 @@ const BlogCard = ({ blog }: { blog: IBLog }) => {
         </div>
         <p className="text-gray-300 text-sm mt-4 line-clamp-3">
           {blog.content.slice(0, 100)}
-          {blog.content.length > 100 && "..."} <span className="underline font-semibold text-primary">Learn More </span>
+          {blog.content.length > 100 && "..."} <span className="underline font-semibold  hover:text-gray-400 text-primary">Learn More </span>
         </p>
       </CardContent>
       <CardFooter className="p-4 flex justify-between items-center text-gray-400 text-sm">
@@ -63,6 +65,8 @@ const BlogCard = ({ blog }: { blog: IBLog }) => {
         </div>
       </CardFooter>
     </Card>
+    </Link>
+   
   );
 };
 

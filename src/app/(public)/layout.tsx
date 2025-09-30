@@ -14,5 +14,5 @@ const publicLayout = ({children}:{
         </div>
     );
 };
-
+// to do  3D Marquee
 export default publicLayout;
