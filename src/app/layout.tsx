@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import  { Toaster } from 'react-hot-toast';
+import AuthProvider from "@/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,12 @@ export default function RootLayout({
       >
         <ParticlesBackground></ParticlesBackground>
     
-        <main className="relative z-10 ">{children}</main>
+        <main className="relative z-10 ">
+          <AuthProvider>
+          {children}
+          </AuthProvider>
+          
+          </main>
     <Toaster></Toaster>
       </body>
     </html>
