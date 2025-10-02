@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={ `max-w-7xl mx-auto dark ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={ ` dark ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ParticlesBackground></ParticlesBackground>
     

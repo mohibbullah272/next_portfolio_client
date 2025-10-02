@@ -7,7 +7,7 @@ const publicLayout = ({children}:{
     children:ReactNode
 }) => {
     return (
-        <div className="lg:p-10 p-5 ">
+        <div className="lg:p-10 p-5 max-w-7xl mx-auto">
             <Navbar></Navbar>
             <main className="min-h-dvh ">{children}</main>
             <Footer></Footer>
