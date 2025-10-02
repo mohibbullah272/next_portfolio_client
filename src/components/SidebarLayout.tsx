@@ -11,6 +11,7 @@ import {
 import Logo from "./ui/Logo";
 import { useSession } from "next-auth/react";
 import { Cog, FileCog, FolderCog, Settings } from "lucide-react";
+import Link from "next/link";
 
 export function SidebarLayout() {
   const links = [
@@ -61,7 +62,7 @@ export function SidebarLayout() {
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-            <Logo></Logo>
+       <Link href={'/'}><Logo></Logo></Link>
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
