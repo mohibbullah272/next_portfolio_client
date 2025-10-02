@@ -11,6 +11,7 @@ import { BlogFormData } from "@/types/blog";
 import toast from "react-hot-toast";
 import { EditBlogModal } from "../edit-blog-modal";
 
+
 interface BlogsTableProps {
   blogs: Blog[];
 }
@@ -48,7 +49,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
 
       if (response.ok) {
         toast.success('Blog updated successfully!');
-        window.location.reload(); 
+       
       } else {
         throw new Error('Failed to update blog');
       }
@@ -71,7 +72,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
 
       if (response.ok) {
         toast.success('Blog deleted successfully!');
-        window.location.reload();
+       
       } else {
         throw new Error('Failed to delete blog');
       }

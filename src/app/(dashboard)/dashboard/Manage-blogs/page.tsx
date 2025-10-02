@@ -9,7 +9,7 @@ import { BlogsTable } from '@/components/ui/blogs-table';
 
 const ManageBlogs = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/blog`, {
-    next: { revalidate: 5 } 
+    next: {revalidate:2 }
   });
   
   if (!res.ok) {
