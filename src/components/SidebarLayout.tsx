@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
 import {
-  IconArrowLeft,
+
   IconBrandTabler,
-  IconSettings,
+
 
 } from "@tabler/icons-react";
 
@@ -23,28 +23,28 @@ export function SidebarLayout() {
     },
     {
       label: "Add Projects",
-      href: "/Add-projects",
+      href: "/dashboard/Add-projects",
       icon: (
         <FolderCog  className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Add Blogs",
-      href: "/Add-blog",
+      href: "/dashboard/Add-blog",
       icon: (
         <FileCog className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Manage Projects",
-      href: "/Manage-projects",
+      href: "/dashboard/Manage-projects",
       icon: (
         <Settings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Manage Blogs",
-      href: "/Manage-blogs",
+      href: "/dashboard/Manage-blogs",
       icon: (
         <Cog className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -53,7 +53,7 @@ export function SidebarLayout() {
   ];
   const [open, setOpen] = useState(false);
   const session = useSession()
-  console.log(session,"from sidebar")
+
   return (
     <div
      
