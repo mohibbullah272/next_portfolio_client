@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { signIn } from "next-auth/react"
 
 export function SignupForm({
   className,
@@ -43,9 +44,31 @@ export function SignupForm({
     avatar:''
     },
   })
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const handleSignup = async (data: { name: string; email: string; password: string; avatar: string }) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+  
+    if (res.ok) {
+    
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: true,
+        callbackUrl: "/",
+      });
+    }
+  };
+  
 
-    console.log(values)
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+     handleSignup(values)
+      } catch (err) {
+        console.error(err);
+      }
   }
 
   return (
@@ -150,7 +173,9 @@ export function SignupForm({
                 <Button type="submit" className="w-full text-white bg-primary/10 backdrop-blur-sm">
                   Signup
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" onClick={()=>signIn('google',{
+                    callbackUrl:'/'
+                })} className="w-full">
                   Signup with Google
                 </Button>
               </div>

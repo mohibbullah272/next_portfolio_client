@@ -1,4 +1,5 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+"use client"
+import { Book, LogOut, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
   Accordion,
@@ -24,6 +25,9 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import Logo from "../ui/Logo";
+import { getUserSession } from "../helpers/getUserSessaion";
+import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
 
 interface MenuItem {
   title: string;
@@ -47,8 +51,7 @@ interface Navbar1Props {
   };
 }
 
-const Navbar = ({
-
+const Navbar =({
   menu = [
     { title: "Home", url: "/" },
     { title: "About Me", url: "/about" },
@@ -60,6 +63,9 @@ const Navbar = ({
     signup: { title: "Sign up", url: "/signup" },
   },
 }: Navbar1Props) => {
+  const session = useSession()
+  let User = session?.data?.user
+
   return (
     <section className="py-4">
       <div className="container ">
@@ -79,12 +85,33 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
+    {
+      User ? <div className="flex items-center gap-5">
+<div>
+  {
+    User?.image ? <div>
+      <Image
+      src={User.image}
+      alt="user image"
+      width={40}
+      height={40}
+      className="rounded-full"
+      />
+    </div>:<div>
+      <span className="bg-primary text-white text-sm font-semibold rounded-full h-14 p-2 w-14">{User?.name?.slice(0,2).toUpperCase()}</span>
+    </div>
+  }
+</div>
+<Button onClick={()=>signOut()} className="bg-red-600/50 backdrop-blur-sm text-white flex items-center gap-2">Logout <LogOut></LogOut></Button>
+      </div>:<>
+              <Button asChild variant="outline" size="sm">
               <Link href={auth.login.url}>{auth.login.title}</Link>
             </Button>
             <Button asChild size="sm">
               <Link href={auth.signup.url}>{auth.signup.title}</Link>
             </Button>
+      </>
+    }
           </div>
         </nav>
 
@@ -119,13 +146,34 @@ const Navbar = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <Link href={auth.login.url}>{auth.login.title}</Link>
-                    </Button>
-                    <Button asChild>
-                      <Link href={auth.signup.url}>{auth.signup.title}</Link>
-                    </Button>
-                  </div>
+    {
+      User ? <div className="flex items-center gap-5">
+<div>
+  {
+    User?.image ? <div>
+      <Image
+      src={User.image}
+      alt="user image"
+      width={40}
+      height={40}
+      className="rounded-full"
+      />
+    </div>:<div>
+      <span className="bg-primary text-sm rounded-full text-white font-semibold h-14 p-2 w-14">{User?.name?.slice(0,2).toUpperCase()}</span>
+    </div>
+  }
+</div>
+<Button onClick={()=>signOut()} className="bg-red-600/50 backdrop-blur-sm text-white flex items-center gap-2">Logout <LogOut></LogOut></Button>
+      </div>:<>
+              <Button asChild variant="outline" size="sm">
+              <Link href={auth.login.url}>{auth.login.title}</Link>
+            </Button>
+            <Button asChild size="sm">
+              <Link href={auth.signup.url}>{auth.signup.title}</Link>
+            </Button>
+      </>
+    }
+          </div>
                 </div>
               </SheetContent>
             </Sheet>

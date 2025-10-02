@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { signIn } from "next-auth/react"
 
 export function LoginForm({
   className,
@@ -39,9 +40,16 @@ export function LoginForm({
       password:''
     },
   })
-  function onSubmit(values: z.infer<typeof formSchema>) {
+ async function onSubmit(values: z.infer<typeof formSchema>) {
 
-    console.log(values)
+    try {
+    await  signIn("credentials", {
+        ...values,
+        callbackUrl: "/",
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -114,7 +122,9 @@ export function LoginForm({
                 <Button type="submit" className="w-full text-white bg-primary/10 backdrop-blur-sm">
                   Login
                 </Button>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" onClick={()=>signIn("google",{
+                  callbackUrl:'/'
+                })} className="w-full">
                   Login with Google
                 </Button>
               </div>
