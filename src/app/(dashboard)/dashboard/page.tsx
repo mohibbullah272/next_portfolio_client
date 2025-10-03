@@ -68,7 +68,7 @@ const DashboardOverview = async () => {
   }
   const data =await res.json()
   const stats: DashboardStats = data?.data;
-
+console.log(data)
   // Format date function
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

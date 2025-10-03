@@ -2,11 +2,11 @@
 
 
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+
 import { BlogForm, BlogFormData } from "@/components/ui/AddBlogForm";
 
 export default function AddBlogPage() {
-  const router = useRouter();
+
 
   const handleSubmit = async (data: BlogFormData) => {
     try {
@@ -21,8 +21,7 @@ export default function AddBlogPage() {
 
       if (response.ok) {
         toast.success("Blog published successfully!");
-        router.push("/dashboard");
-        router.refresh();
+     
       } else {
         throw new Error("Failed to create blog");
       }

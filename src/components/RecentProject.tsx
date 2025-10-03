@@ -10,7 +10,7 @@ const RecentProject = async() => {
             <h3 className="text-4xl text-center font-bold italic">Latest <span className="text-primary/80">Projects</span></h3>
             <div className="grid lg:grid-cols-3 place-items-center md:grid-cols-2 grid-cols-1 justify-items-center my-20 gap-5">
 {
-    projects.map((project:Project)=><ProjectCard key={project.id} project={project}></ProjectCard>)
+    projects.slice(0,3).map((project:Project)=><ProjectCard key={project.id} project={project}></ProjectCard>)
 }
 </div>
         </div>
