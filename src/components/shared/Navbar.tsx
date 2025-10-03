@@ -64,7 +64,7 @@ const Navbar =({
   },
 }: Navbar1Props) => {
   const session = useSession()
-  let User = session?.data?.user
+  const User = session?.data?.user
 
   return (
     <section className="py-4">

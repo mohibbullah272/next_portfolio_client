@@ -38,7 +38,7 @@ export function EditBlogModal({ blog, isOpen, onClose, onSave }: EditBlogModalPr
         <DialogHeader>
           <DialogTitle>Edit Blog Post</DialogTitle>
           <DialogDescription>
-            Update your blog post information. Click save when you're done.
+            Update your blog post information. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         
