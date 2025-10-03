@@ -60,7 +60,7 @@ export function BlogForm({
     setIsSubmitting(true);
     try {
       await onSubmit?.(data);
-      form.reset(); 
+   
     } catch (error) {
       console.error("Error submitting blog:", error);
     } finally {

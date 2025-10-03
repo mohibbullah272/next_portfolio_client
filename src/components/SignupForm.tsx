@@ -18,6 +18,7 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { signIn } from "next-auth/react"
+import toast from "react-hot-toast"
 
 export function SignupForm({
   className,
@@ -52,7 +53,7 @@ export function SignupForm({
     });
   
     if (res.ok) {
-    
+    toast.success('account create successful')
       await signIn("credentials", {
         email: data.email,
         password: data.password,

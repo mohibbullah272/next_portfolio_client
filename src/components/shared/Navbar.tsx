@@ -87,10 +87,13 @@ const Navbar =({
           <div className="flex gap-2">
     {
       User ? <div className="flex items-center gap-5">
-    <Link
-      className="hover:underline"
-      href={'/dashboard'}
-    >Dashboard</Link>
+        {
+          User?.role ==="admin" &&   <Link
+          className="hover:underline"
+          href={'/dashboard'}
+        >Dashboard</Link>
+        }
+ 
 <div>
   {
     User?.image ? <div>
@@ -153,10 +156,12 @@ const Navbar =({
     {
       User ? <div className="flex items-center gap-5">
 <div>
-<Link
-      className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
-      href={'/dashboard'}
-    >Dashboard</Link>
+{
+          User?.role ==="admin" &&   <Link
+          className="hover:underline"
+          href={'/dashboard'}
+        >Dashboard</Link>
+        }
   {
     User?.image ? <div>
       <Image

@@ -9,6 +9,7 @@ declare module "next-auth" {
       name?: string | null;
       email?: string | null;
       image?: string | null;
+      role?:string | null
     };
   }
   interface User {
@@ -16,6 +17,7 @@ declare module "next-auth" {
     name?: string | null;
     email?: string | null;
     image?: string | null;
+    role?:string | null
   }
 }
 
@@ -58,7 +60,7 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
           const data = await res.json();
-          console.log("Backend Response:", data);
+     
       
           const user = data?.result;
           if (user.id) {
@@ -68,7 +70,9 @@ export const authOptions: NextAuthOptions = {
               name: user?.name,
               email: user?.email,
               image: user?.avatar,
+              role:user?.role
             };
+
           } else {
             return null;
           }
@@ -83,13 +87,18 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user?.id;
+        token.role = user?.role
+        
       }
+
       return token;
     },
     async session({ session, token }) {
       if (session?.user) {
         session.user.id = token?.id as string;
+        session.user.role=token.role as string
       }
+
       return session;
     },
   },

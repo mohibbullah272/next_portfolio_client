@@ -15,6 +15,7 @@ export default function AddBlogPage() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials:"include",
         body: JSON.stringify(data),
       });
 

@@ -18,6 +18,7 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { signIn } from "next-auth/react"
+import toast from "react-hot-toast"
 
 export function LoginForm({
   className,
@@ -47,6 +48,7 @@ export function LoginForm({
         ...values,
         callbackUrl: "/",
       });
+      toast.success('login success')
     } catch (err) {
       console.error(err);
     }

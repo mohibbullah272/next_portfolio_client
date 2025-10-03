@@ -85,15 +85,11 @@ export function ProjectsTable({ projects }: ProjectsTableProps) {
   return (
     <>
       <div className="rounded-md border">
-        <Table>
+        <Table >
           <TableHeader>
             <TableRow>
               <TableHead>Thumbnail</TableHead>
               <TableHead>Project Name</TableHead>
-              <TableHead>Description</TableHead>
-              <TableHead>Technologies</TableHead>
-              <TableHead>Features</TableHead>
-              <TableHead>Views</TableHead>
               <TableHead>Links</TableHead>
               <TableHead>Created</TableHead>
               <TableHead className="text-right">Actions</TableHead>
@@ -118,39 +114,6 @@ export function ProjectsTable({ projects }: ProjectsTableProps) {
                   <div className="max-w-[150px]">
                     <div className="line-clamp-2 font-semibold">{project.name}</div>
                   </div>
-                </TableCell>
-                <TableCell className="max-w-[250px]">
-                  <div className="line-clamp-2 text-sm text-muted-foreground">
-                    {truncateText(project.description, 80)}
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="flex flex-wrap gap-1 max-w-[150px]">
-                    {project.technology.slice(0, 2).map((tech, index) => (
-                      <Badge key={index} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technology.length > 2 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.technology.length - 2}
-                      </Badge>
-                    )}
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="max-w-[150px]">
-                    <div className="line-clamp-2 text-xs text-muted-foreground">
-                      {project.features.slice(0, 2).join(', ')}
-                      {project.features.length > 2 && '...'}
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <Badge variant="secondary" className="flex items-center gap-1 w-fit">
-                    <Eye className="h-3 w-3" />
-                    {project.viewCount}
-                  </Badge>
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-1">

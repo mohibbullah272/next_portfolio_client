@@ -56,7 +56,7 @@ const ManageBlogs = async () => {
                 Get started by creating your first blog post.
               </p>
               <Button asChild>
-                <Link href="/add-blog">
+                <Link href="/dashboard/Add-blog">
                   <Plus className="h-4 w-4 mr-2" />
                   Create Your First Blog
                 </Link>

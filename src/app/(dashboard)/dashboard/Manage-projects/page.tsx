@@ -19,7 +19,7 @@ const ManageProjects = async () => {
   const projects: Project[] = await res.json();
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto my-5">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Manage Projects</h1>
@@ -56,7 +56,7 @@ const ManageProjects = async () => {
                 Get started by adding your first project to showcase.
               </p>
               <Button asChild>
-                <Link href="/add-project">
+                <Link href="/dashboard/Add-projects">
                   <Plus className="h-4 w-4 mr-2" />
                   Add Your First Project
                 </Link>

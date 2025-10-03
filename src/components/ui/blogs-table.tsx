@@ -28,10 +28,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
     });
   };
 
-  const truncateText = (text: string, maxLength: number) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-  };
+
 
   const handleEdit = (blog: Blog) => {
     setEditingBlog(blog);
@@ -49,7 +46,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
 
       if (response.ok) {
         toast.success('Blog updated successfully!');
-       
+      
       } else {
         throw new Error('Failed to update blog');
       }
@@ -91,10 +88,10 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
             <TableRow>
               <TableHead>Thumbnail</TableHead>
               <TableHead>Title</TableHead>
-              <TableHead>Content Preview</TableHead>
+        
               <TableHead>Views</TableHead>
               <TableHead>Created</TableHead>
-              <TableHead>Updated</TableHead>
+           
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -116,11 +113,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
                 <TableCell className="font-medium max-w-[200px]">
                   <div className="line-clamp-2">{blog.title}</div>
                 </TableCell>
-                <TableCell className="max-w-[300px]">
-                  <div className="line-clamp-2 text-sm text-muted-foreground">
-                    {truncateText(blog.content, 100)}
-                  </div>
-                </TableCell>
+        
                 <TableCell>
                   <Badge variant="secondary" className="flex items-center gap-1 w-fit">
                     <Eye className="h-3 w-3" />
@@ -133,11 +126,7 @@ export function BlogsTable({ blogs }: BlogsTableProps) {
                     {formatDate(blog.createdAt)}
                   </div>
                 </TableCell>
-                <TableCell>
-                  <div className="text-sm text-muted-foreground">
-                    {formatDate(blog.updatedAt)}
-                  </div>
-                </TableCell>
+      
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
                     <Button
