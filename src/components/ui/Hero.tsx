@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 
 import { Button } from "@/components/ui/button";
+import { TextGenerateEffect } from "./text-generate-effect";
 
 interface Hero1Props {
   badge?: string;
@@ -26,11 +27,11 @@ interface Hero1Props {
 const Hero = ({
 
   heading = "Md  , Mohibbullah",
-  description = "Full-stack developer passionate about building secure, scalable, and reusable applications, committed to writing clean, high-performance code and leveraging modern technologies to deliver impactful solutions that enhance business growth and user experience.",
+  description = "Full-stack developer passionate about building secure, scalable, and reusable applications.",
   buttons = {
     primary: {
       text: "Contact",
-      url: "https://www.shadcnblocks.com",
+      url: "#contact",
     },
     secondary: {
       text: "View on GitHub",
@@ -51,9 +52,9 @@ const Hero = ({
             <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
               {heading}
             </h1>
-            <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
-              {description}
-            </p>
+            <div className="text-muted-foreground mb-8 max-w-xl lg:text-xl">
+            <TextGenerateEffect words={description}></TextGenerateEffect>
+            </div>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (
                 <Button asChild className="w-full bg-primary/70 text-white sm:w-auto">

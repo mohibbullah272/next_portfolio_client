@@ -22,7 +22,7 @@ const Contact = ({
 }: Contact2Props) => {
 
   return (
-    <section className="py-32">
+    <section id="contact" className="py-32">
       <div className="container">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 lg:flex-row lg:gap-20">
           <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
