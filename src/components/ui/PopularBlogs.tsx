@@ -6,8 +6,7 @@ import BlogCard, { IBLog } from "./BlogCard";
 const PopularBlogs = async() => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/blog/popular`);
     const blogs = await res.json();
-    const test =await getUserSession()
-    console.log(test)
+
  
     return (
         <div>

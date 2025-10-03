@@ -1,4 +1,5 @@
 
+import RecentProject from '@/components/RecentProject';
 import Skills from '@/components/Skills';
 import Contact from '@/components/ui/Contact';
 import Faq from '@/components/ui/FAQ';
@@ -17,6 +18,7 @@ const HomePage = () => {
     return (
         <div>
 <Hero></Hero>
+<RecentProject></RecentProject>
 <Skills></Skills>
 <Services></Services>
 <PopularBlogs></PopularBlogs>

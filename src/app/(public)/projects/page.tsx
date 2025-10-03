@@ -17,7 +17,7 @@ const Projects = async() => {
         }
     })
     const projects = await res.json()
-    console.log(projects)
+
     return (
         <div>
           

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { 
   SiReact, SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, 
   SiRedux, SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, 
-  SiGraphql, SiGit, SiGithub, SiFirebase, SiFigma, SiPostman 
+  SiGraphql, SiGit, SiGithub, SiFirebase, SiFigma, SiPostman,SiPrisma 
 } from 'react-icons/si';
 import { Database, Key } from 'lucide-react';
 
@@ -20,6 +20,7 @@ const Skills = () => {
     { name: 'Express.js', icon: SiExpress, percentage: 88, color: '#000000' },
     { name: 'MongoDB', icon: SiMongodb, percentage: 89, color: '#47A248' },
     { name: 'PostgreSQL', icon: SiPostgresql, percentage: 82, color: '#4169E1' },
+    { name: 'Prisma', icon: SiPrisma, percentage: 82, color: '#000000' },
     { name: 'SQL', icon: Database, percentage: 84, color: '#00758F' },
     { name: 'GraphQL', icon: SiGraphql, percentage: 80, color: '#E10098' },
     { name: 'JWT', icon: Key, percentage: 90, color: '#000000' },
@@ -35,8 +36,8 @@ const Skills = () => {
   return (
     <div className="w-full  py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-12">
-        <h2 className="text-4xl font-bold text-center text-white mb-3">
-          Technical Skills
+        <h2 className="text-4xl font-bold italic text-center text-white mb-3">
+          Technical <span className='text-primary/80'>Skills</span> 
         </h2>
         <p className="text-center text-slate-400">
           Expertise across modern web technologies
@@ -50,13 +51,13 @@ const Skills = () => {
         <motion.div
           className="flex gap-8"
           animate={{
-            x: [0, -50 * skills.length],
+            x: [0, -(272 * skills.length)],
           }}
           transition={{
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 40,
+              duration: 60,
               ease: "linear",
             },
           }}
