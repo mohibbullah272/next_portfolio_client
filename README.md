@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# M.Dev Portfolio
 
-## Getting Started
+## Live Deployment Link
+[Visit the Live Site](https://next-portfolio-client-phi.vercel.app) 
 
-First, run the development server:
+## Project Overview & Features
+This portfolio project showcases a modern, full-stack web application designed to highlight personal projects, blogs, and professional details. It features a sleek and responsive user interface with a dashboard for managing content.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Key Features:
+- **Responsive Design**: Optimized for all devices, including mobile, tablet, and desktop.
+- **Amazing UI**: A visually appealing and intuitive interface built with modern design principles.
+- **Dashboard**: Centralized hub for managing blogs and projects.
+- **Blog Management**: Full CRUD (Create, Read, Update, Delete) functionality for blog posts.
+- **Project Management**: Full CRUD functionality for showcasing and managing projects.
+- **Secure Authentication**: JWT-based authentication system using NextAuth for secure user access.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
+- **Frontend**:
+  - React
+  - Next.js
+  - Shadcn (UI components)
+  - Tailwind CSS (styling)
+  - Redux (state management)
+- **Backend**:
+  - Node.js
+  - NextAuth (authentication)
+- **Other**:
+  - JWT (JSON Web Tokens) for secure authentication
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup Instructions
+Follow these steps to set up and run the project locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/mohibbullah272/rep.git
+   cd your-repo
+   ```
 
-## Learn More
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set Up Environment Variables**:
+   Create a `.env.local` file in the root directory and add the following:
+   ```env
+   NEXTAUTH_SECRET=your-nextauth-secret
+   NEXTAUTH_URL=http://localhost:3000
+   JWT_SECRET=your-jwt-secret
+   ```
+   Replace `your-nextauth-secret` and `your-jwt-secret` with secure random strings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Build for Production**:
+   ```bash
+   npm run build
+   npm run start
+   ```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
